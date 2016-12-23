@@ -1,0 +1,24 @@
+package java_io_examples;
+
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+
+public class Filetest {
+    public static void main(String[] args) {
+    try{
+        FileInputStream fin = new FileInputStream("D:\\testout.txt");
+            int i = 0;
+            String s = "";
+            while((i=fin.read())!=-1){
+                s = s + String.valueOf((char)i);
+            }
+            FileOutputStream fout = new FileOutputStream("D:\\newtestout1.txt");
+            byte[] b = s.getBytes();
+            fout.write(b);
+            fout.close();
+            System.out.println("Done reading and writing!!");
+    }catch(Exception e){
+        System.out.println(e);
+    }
+    }
+}
